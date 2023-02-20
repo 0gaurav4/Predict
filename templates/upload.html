@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block css %}
+
+{% endblock %}
+{% block body %}
+
+<div class="container">
+    <div class="row">
+        <div class="col-sm-4 col-md-5 mx-auto mt-5">
+            <h3 class="text-center p-3">
+                <b style="color: rgb(242, 247, 250);">UPLOAD </b>
+            </h3>
+            <form class="card" method="post" enctype="multipart/form-data">
+                <div class="card-header" style="background-color: rgb(186, 33, 33); color: rgb(239, 211, 176);">
+                    <p class="lead"
+                        style="text-align: center; margin-top: 2%;  font-family: 'Akaya Telivigala';font-size: 26px;">
+                        <b>Please Upload Dataset</b>
+                    </p>
+                </div>
+                <div class="card-body"
+                    style="background-color: rgb(250, 250, 250);  font-family: 'Akaya Telivigala';font-size: 22px;">
+                    <div class="form-group">
+                        <label for="imageId">File</label>
+                        <input type="file" name="file" class="form-control-file" name="filepath" id="filepath"
+                            placeholder="browse the dataset" aria-describedby="imageHelp">
+
+                    </div>
+                </div>
+                <div class="card-footer"
+                    style="background-color: rgb(255, 255, 255);  font-family: 'Akaya Telivigala';font-size: 22px;">
+                    <button class="btn btn-primary">Upload</button>
+                </div>
+            </form>
+
+
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<br>
+<br>
+{% endblock %}

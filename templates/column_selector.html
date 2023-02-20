@@ -1,0 +1,81 @@
+
+{% extends 'base.html' %}
+
+{% block css %}
+<style>.table {
+    --bs-table-bg: linen;
+    --bs-table-accent-bg: honeydew;
+    --bs-table-striped-color: #212528;
+    --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+    --bs-table-active-color: #212527;
+    --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+    --bs-table-hover-color: #212529;
+    --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+    width: 100%;
+    margin-bottom: 14rem;
+    color: darkslategrey;
+    vertical-align: baseline;
+    border-color: blanchedalmond;
+}
+table {
+    caption-side: bottom;
+    border-collapse: separate;
+}
+</style>
+{% endblock css %}
+
+
+{% block body %}
+{% include "notify.html" %}
+<h3 class="text-center p-3">
+    <b style="color: rgb(242, 247, 250);">Select Columns for Forecasting </b>         
+    <p style="color: rgba(235, 29, 29, 0.985);">Date column must be the first one</p>
+</h3>
+<div class="card shadow-lg m-5">
+    {{df|safe}}
+    <form action="/train" method="post" class="card-footer">
+        <div class="row">
+            
+            <div class="col-5">
+                <div class="form-floating">
+                    <select class="form-select" name="col1" id="floatingSelect1" aria-label="Floating label select example">
+                        <option selected>Select the X column</option>
+                        {% for col in col1 %}
+                        <option>{{col}}</option>
+                        {% endfor %}
+                        
+                    </select>
+                    <label for="floatingSelect">Works with selects</label>
+                </div>
+            </div>
+            <div class="col-5">
+                <div class="form-floating">
+                    <select class="form-select" name="col2" id="floatingSelect2" aria-label="Floating label select example">
+                        <option selected>Select the Y column</option>
+                        {% for col in col2 %}
+                        <option>{{col}}</option>
+                        {% endfor %}
+                    </select>
+                    <label for="floatingSelect">Works with selects</label>
+                </div>
+            </div>
+            <input type="hidden" name="filepath" value="{{data.filepath}}">
+            <div class="col-auto">
+                <button type="submit" class="btn btn-primary my-2">Confirm Columns</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+
+{% endblock body %}
+
+{% block js %}
+<script>
+    document.querySelector('table').classList='table table-hovered table-bordered'
+</script>
+{% endblock %}
+
+
+
+

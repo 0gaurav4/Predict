@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+
+{% block css %}
+<style>
+    .table {
+        --bs-table-bg: linen;
+        --bs-table-accent-bg: honeydew;
+        --bs-table-striped-color: #212528;
+        --bs-table-striped-bg: rgba(0, 0, 0, 0.05);
+        --bs-table-active-color: #212527;
+        --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+        --bs-table-hover-color: #212529;
+        --bs-table-hover-bg: rgba(0, 0, 0, 0.075);
+        width: 100%;
+        margin-bottom: 14rem;
+        color: darkslategrey;
+        vertical-align: baseline;
+        border-color: blanchedalmond;
+    }
+
+    table {
+        caption-side: bottom;
+        border-collapse: separate;
+    }
+</style>
+{% endblock css %}
+
+
+{% block body %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5">
+            <h3 class="text-center p-3">
+                <b style="color: rgb(242, 247, 250);">Get Ready to forecast</b>
+            </h3>
+            <div class="card shadow-lg m-5">
+                <div class="card-body">
+                    {{session.col1}}
+                    {{session.col2}}
+                    {{session.filepath}}
+                </div>
+                <div class="card-footer">
+                    <a href="/train_timeseries?x={{session.col1}}&y={{session.col2}}&f={{session.filepath}}"
+                        class="btn btn-block btn-danger">Train
+                        Timeseries model</a>
+                        <div class="card shadow-sm m-1" style="background-color: white;"> &nbsp;&nbsp;
+                            Column 1 :    {{session.col1}} &nbsp;&nbsp;
+                            Column 2 :    {{session.col2}}  <br> &nbsp;&nbsp;
+                            File :    {{session.filepath}}
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-10 mx-auto my-5">
+            <embed src="{{graphs.prediction_graph_1}}" width="100%" height="500px" />
+        </div>
+    </div>
+</div>
+{% endblock body %}

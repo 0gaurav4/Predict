@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block css %}{% endblock css %}
+
+{% block body %}
+    <form class="row g-3 needs-validation" novalidate>
+      <div class="col-md-4">
+        <label for="columnName" class="form-label">Enter the Column Name</label>
+        <input type="text" class="form-control" id="Column" name="column"  required>
+      </div>
+      <div class="col-md-4">
+        <label for="upperDate" class="form-label">Enter Upper Value of Date Range</label>
+        <input type="date" class="form-control" id="upperDate" name="upperDate"  required>
+      </div>
+      <div class="col-md-4">
+        <label for="lowerDate" class="form-label">Enter Lower Value of Date Range</label>
+        <input type="date" class="form-control" id="lowerDate" name="lowerDate"  required>
+      </div>
+      <div class="col-12">
+        <button class="btn btn-primary" type="submit">Submit</button>
+      </div>
+    </form>
+{% endblock body %}
+
+
